@@ -1,0 +1,15 @@
+.main-container{
+    display: flex;
+
+    .menu{
+        width: 20%;
+        height: 680px;
+        border-right: solid 1px #ccc;
+        position: relative;
+    }
+
+    .main-content{
+        width: 80%;
+        position: relative;
+    }
+}
