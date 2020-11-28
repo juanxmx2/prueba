@@ -1,0 +1,53 @@
+<div class="container">
+
+    <form class="mt-5" [formGroup]="registerForm" (ngSubmit)="registrar()">
+
+        <div class="form-group">
+            <input 
+            [ngClass]="{'is-invalid' : f.name.touched && !f.name.valid, 'is-valid' : f.name.valid }"
+            formControlName="name" class="form-control" type="text" placeholder="Nombre">
+            
+        </div>
+
+        <div class="form-group">
+            <input 
+            [ngClass]="{'is-invalid' : f.family_name.touched && !f.family_name.valid, 'is-valid' : f.family_name.valid }"
+            formControlName="family_name" class="form-control" type="text" placeholder="Apellido">
+            
+        </div>
+
+        <div class="form-group">
+            <input 
+            [ngClass]="{'is-invalid' : f.email.touched && !f.email.valid, 'is-valid' : f.email.valid }"
+            formControlName="email" class="form-control" type="email" placeholder="Email">
+        </div>
+
+        <div class="form-group">
+            
+            <input 
+            [ngClass]="{'is-invalid' : f.phone.touched && !f.phone.valid, 'is-valid' : f.phone.valid }"
+            formControlName="phone" class="form-control" type="tel" placeholder="Teléfono">
+        </div>
+
+        <div class="form-group">
+            <select 
+            [ngClass]="{'is-invalid' : f.program.touched && !f.program.valid, 'is-valid' : f.program.valid }"
+            formControlName="program" class="form-control">
+                <option value="">Seleccione una opción</option>
+                <option *ngFor="let program of programs" [value]="program.id">{{program.name}}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <textarea 
+            [ngClass]="{'is-invalid' : f.comment.touched && !f.comment.valid, 'is-valid' : f.comment.valid }"
+            formControlName="comment" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+
+        <div class="form-group text-center">
+            <button *ngIf="!loading" class="btn btn-success" [disabled]="!registerForm.valid">Crear</button>
+            <button *ngIf="loading" class="btn btn-primary" disabled>Cargando...</button>
+        </div>
+    </form>
+
+</div>
